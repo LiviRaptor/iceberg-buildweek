@@ -128,6 +128,7 @@ GPT-5.6 in Codex was used for the final Build Week audit. That work included rev
 - Optional yfinance / pandas support for history data
 - Optional ib_insync support for private Interactive Brokers integration
 - Codex-assisted refactoring and productization during OpenAI Build Week
+- GPT-5.5 for the main Codex-assisted implementation work
 - GPT-5.6 final privacy, safety, and submission audit
 
 ## Author
