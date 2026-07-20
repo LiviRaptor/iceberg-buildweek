@@ -104,6 +104,10 @@ Iceberg does not include private brokerage credentials or API keys. The reposito
 
 The dashboard is not financial advice. It does not recommend buying, selling, or holding any security. It displays predefined personal risk rules and checks consistency against them.
 
+## Image And Likeness Notice
+
+The portraits shown in the dashboard are AI-generated or AI-transformed illustrative depictions of public figures and appear alongside attributed quotations. They are not official photographs, and no endorsement, sponsorship, or affiliation is implied.
+
 Run the public-submission safety check with:
 
 ```bash
