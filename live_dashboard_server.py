@@ -29,6 +29,7 @@ HTML_FILE = ROOT / 'livka_dashboard.html'
 CONFIG_FILE = Path(os.environ.get('ICEBERG_CONFIG', 'config.json'))
 if not CONFIG_FILE.is_absolute():
     CONFIG_FILE = ROOT / CONFIG_FILE
+DEMO_MODE = CONFIG_FILE.name == 'config.demo.json'
 HOST = '127.0.0.1'
 PORT = 8765
 MARKET_CONTEXT = None
@@ -176,6 +177,11 @@ class LiveState:
             self.snapshot = calc_snapshot(**kwargs)
 
     def _run_ib(self):
+        if DEMO_MODE:
+            while True:
+                self.set_snapshot(live=True, status='IBKR LIVE · DEMO FEED')
+                threading.Event().wait(1)
+
         try:
             import asyncio
             asyncio.set_event_loop(asyncio.new_event_loop())
