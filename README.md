@@ -1,6 +1,6 @@
 # HoldPilot
 
-HoldPilot is a live portfolio guardrail dashboard for a long-term ETF investing plan. It turns a personal investment plan into a calm, visual cockpit: current portfolio value, cash buffer, LQQ exposure, limit-order readiness, market-regime status, and an AI-style guardrail review.
+HoldPilot is a live portfolio guardrail dashboard for a long-term ETF investing plan. It turns a personal investment plan into a calm, visual cockpit: current portfolio value, cash buffer, LQQ exposure, limit-order readiness, market-regime status, and a Guardrail Review.
 
 It is not an investment advisor and does not place trades. It is a personal decision-support dashboard that checks whether the current portfolio state is consistent with predefined risk rules.
 
@@ -15,20 +15,20 @@ HoldPilot started before Build Week as a private static HTML portfolio snapshot 
 During Build Week, the project was refactored and productized with Codex as an iterative engineering partner:
 
 - split one large script into core logic, templates, static assets, and a local live server
-- turned a static HTML snapshot into a live local dashboard
+- transformed a static HTML portfolio snapshot into an IBKR-connected live dashboard with live-updating pricing, exposure monitoring, and guardrail checks
 - added browser-side live metric updates
 - added a public demo configuration with synthetic/sample portfolio values
 - separated private configuration from the public submission
 - translated the UI into English
 - added a market-regime visual layer
-- added the AI Guardrail Review panel
+- added the Guardrail Review panel
 - cleaned the repository for public submission
 
 A key part of the work was preserving the original visual identity while making the dashboard maintainable. Earlier AI-assisted refactoring attempts had repeatedly broken the layout; this Build Week iteration succeeded in separating the application structure without losing the design.
 
 ## Main Features
 
-- Live local dashboard served at `http://127.0.0.1:8765/`
+- IBKR-connected live dashboard served locally.
 - Demo portfolio configuration via `config.demo.json`
 - Optional private Interactive Brokers refresh flow via `update_config.py`
 - Portfolio value with and without cash
@@ -38,11 +38,11 @@ A key part of the work was preserving the original visual identity while making 
 - Retirement/time-horizon countdown
 - Scenario checkpoints for future risk windows
 - Market-regime indicator
-- AI Guardrail Review in deterministic demo mode
+- Guardrail Review in deterministic demo mode
 
-## AI Guardrail Review
+## Guardrail Review
 
-The AI Guardrail Review checks whether the current portfolio plan is internally consistent with predefined risk rules. It focuses on:
+The Guardrail Review checks whether the current portfolio plan is internally consistent with predefined risk rules. It focuses on:
 
 - LQQ exposure
 - cash reserve visibility
@@ -50,7 +50,7 @@ The AI Guardrail Review checks whether the current portfolio plan is internally 
 - leverage drift
 - known future risk windows
 
-For the Build Week demo, the review runs in deterministic AI demo mode. This makes the demo safe and reliable without exposing API keys, brokerage credentials, or relying on external API quota. The component is designed as an AI reasoning layer, not as investment advice.
+For the Build Week demo, the review runs in deterministic guardrail demo mode. This makes the demo safe and reliable without exposing API keys, brokerage credentials, or relying on external API quota. The component is designed to support a future GPT-based reasoning layer. It is not investment advice.
 
 ## How To Run
 
@@ -104,6 +104,18 @@ HoldPilot does not include private brokerage credentials or API keys. The reposi
 
 The dashboard is not financial advice. It does not recommend buying, selling, or holding any security. It displays predefined personal risk rules and checks consistency against them.
 
+Run the public-submission safety check with:
+
+```bash
+python3 submission_audit.py
+```
+
+## How Codex And GPT-5.6 Were Used
+
+The product concept, investment rules, calculations, visual direction, and safety boundaries were defined by Livia. Codex was used as an iterative engineering partner during Build Week to modularize the original monolithic script, connect the live dashboard flow to IBKR data, preserve the existing visual design, separate public demo data from private configuration, and prepare the repository for submission.
+
+GPT-5.6 in Codex was used for the final Build Week audit. That work included reviewing privacy and demo-mode separation, correcting Guardrail Review naming so the public demo does not imply a live model call, adding an automated submission-safety check, and tightening the README claims. The public Guardrail Review remains deterministic; GPT-5.6 was used in the development and audit process rather than being presented as an embedded investment advisor.
+
 ## Built With
 
 - Python
@@ -112,3 +124,4 @@ The dashboard is not financial advice. It does not recommend buying, selling, or
 - Optional yfinance / pandas support for history data
 - Optional ib_insync support for private Interactive Brokers integration
 - Codex-assisted refactoring and productization during OpenAI Build Week
+- GPT-5.6 final privacy, safety, and submission audit

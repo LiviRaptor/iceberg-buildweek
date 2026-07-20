@@ -437,13 +437,13 @@ const RATES={{rates_js}};
       const res = await fetch('/api/ai-review', {method:'POST', cache:'no-store'});
       const data = await res.json();
       out.textContent = data.review || 'No review returned.';
-      if (mode) mode.textContent = data.mode || 'AI review';
+      if (mode) mode.textContent = data.mode || 'Guardrail review';
     } catch (err) {
-      out.textContent = 'Start the live demo server to run the AI guardrail review. Demo fallback is available without an API key.';
+      out.textContent = 'Start the live demo server to run the guardrail review.';
       if (mode) mode.textContent = 'offline';
     } finally {
       btn.disabled = false;
-      btn.textContent = 'Run AI review';
+      btn.textContent = 'Run review';
     }
   });
 })();

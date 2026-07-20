@@ -273,7 +273,7 @@ def demo_guardrail_review(snapshot):
     dist_text = f"{dist:.1f}% from the first limit order" if isinstance(dist, (int, float)) else 'not near a limit trigger'
     return {
         'ok': True,
-        'mode': 'AI demo review',
+        'mode': 'Deterministic demo review',
         'review': (
             f"Plan consistent. LQQ exposure is {ctx['lqq_exposure_pct']:.1f}%, cash reserve is visible, and the portfolio is {dist_text}.\n"
             "Watch LQQ leverage drift and the 2029/2033 personal risk windows. Not investment advice."
@@ -281,7 +281,7 @@ def demo_guardrail_review(snapshot):
     }
 
 
-def openai_guardrail_review(snapshot):
+def guardrail_review(snapshot):
     # Build Week demo mode: keep the endpoint deterministic and API-key free for recordings.
     return demo_guardrail_review(snapshot)
 
@@ -451,7 +451,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         path = urlparse(self.path).path
         if path == '/api/ai-review':
-            review = openai_guardrail_review(LIVE.get())
+            review = guardrail_review(LIVE.get())
             self.send_body(json.dumps(review, ensure_ascii=False), 'application/json; charset=utf-8')
             return
         self.send_body('Not found', 'text/plain; charset=utf-8', 404)
