@@ -1,0 +1,109 @@
+HoldPilot - Functional Files
+============================
+
+This file lists the files that belong to the Build Week submission.
+Files not listed here are either generated locally, private, or safe to ignore.
+
+Run
+---
+
+Start the live demo:
+
+    ./start_holdpilot_live.sh
+
+Then open:
+
+    http://127.0.0.1:8765/
+
+Optional regime preview:
+
+    http://127.0.0.1:8765/?regimePreview=1
+
+Core Files
+----------
+
+start_holdpilot_live.sh
+    Starts the HoldPilot live demo. It uses config.demo.json by default.
+
+livka_dashboard_refactor_codex.py
+    Main dashboard generator. Builds the HTML page from templates and data.
+
+livka_dashboard_core.py
+    Shared calculation and data-loading helpers.
+
+live_dashboard_server.py
+    Local live server for the dashboard. Serves the generated HTML and exposes
+    live JSON endpoints for quote/status refresh and AI guardrail demo review.
+
+update_config.py
+    Optional local IBKR refresh script. It can create/update config.json from
+    Interactive Brokers Gateway. config.json is ignored by git.
+
+config.demo.json
+    Demo portfolio configuration used for the public Build Week submission.
+    Contains synthetic/sample values only.
+
+.gitignore
+    Keeps private/generated files out of git: config.json, generated HTML,
+    caches, and local private folders.
+
+Templates
+---------
+
+templates_codex/base.html
+templates_codex/header_section.html
+templates_codex/portfolio_section.html
+templates_codex/risk_section.html
+templates_codex/trajectory_section.html
+templates_codex/limits_section.html
+templates_codex/munger_section.html
+templates_codex/panic_section.html
+    HTML templates for dashboard sections.
+
+Static Assets
+-------------
+
+static_codex/dashboard.css
+    Dashboard styling.
+
+static_codex/dashboard.js
+    Browser-side live updates, portfolio recalculation, and AI review button.
+
+assets/munger.png
+assets/karpis.png
+assets/bear_gold_reference.png
+    Visual assets used by the dashboard.
+
+Ignored / Not for GitHub
+------------------------
+
+config.json
+    Private local config generated from real IBKR data. Never commit.
+
+private_not_for_github/
+    Local-only storage for private files. Ignored by git.
+
+livka_dashboard.html
+    Generated output. Ignored by git.
+
+__pycache__/
+.DS_Store
+    Local runtime/system files. Ignored by git.
+
+How It Works
+------------
+
+1. The live script selects config.demo.json unless HOLDPILOT_CONFIG is set.
+2. The dashboard generator builds livka_dashboard.html from templates.
+3. The local server serves the dashboard at http://127.0.0.1:8765/.
+4. Browser JavaScript polls the server for updated prices and recalculated
+   portfolio metrics.
+5. The AI Guardrail Review runs in deterministic demo mode for the submission.
+   It checks the displayed portfolio state against predefined risk rules and
+   explicitly avoids investment advice.
+
+Privacy Notes
+-------------
+
+The public submission should use config.demo.json only. Do not commit config.json,
+API keys, account identifiers, exported brokerage data, or generated local output.

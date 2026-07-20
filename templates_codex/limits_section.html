@@ -1,0 +1,25 @@
+    <section class="fade" style="animation-delay:.18s">
+    <div class="sec-head"><span class="sec-num">IV</span><h2>LQQ Limit Orders &amp; Calibrator</h2></div>
+    <div class="card">
+    <div class="lim-status">
+    <span style="font-size:18px;">✓</span>
+    <span><strong>All GTC orders are active.</strong>
+    No action is needed from you — limit orders trigger automatically when the price falls to the selected level.
+    The only possible action: ask Claude to recalibrate if LQQ rises significantly.</span>
+    </div>
+    <div class="cb" style="height:200px;Margin-bottom:16px;"><canvas id="lqq"></canvas></div>
+    <table>
+    <thead><tr><th>level</th><th class="r">shares</th><th class="r">amount</th>
+    <th class="r">distance</th><th>nearest MA</th><th>status</th></tr></thead>
+    <tbody>{{lim_rows}}</tbody>
+    </table>
+    <div style="Margin-top:12px;font-size:12px;color:var(--dim);">
+    SMA 50d: <b style="color:var(--soft)">{{sma50d}} €</b> ·
+    SMA 100d: <b style="color:var(--soft)">{{sma100_str}} €</b> ·
+    SMA 200d: <b style="color:var(--soft)">{{sma200_str}} €</b> ·
+    SMA 50W: <b style="color:var(--soft)">{{sma50w_str}} €</b>
+    </div>
+    <div class="note">The top two limit orders should sit near the 100d and 200d SMAs.
+    The distance bar shows how far LQQ must fall (max -65%) before activation.</div>
+    </div>
+    </section>

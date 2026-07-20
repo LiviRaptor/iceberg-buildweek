@@ -1,0 +1,89 @@
+    <header class="fade">
+    <div>
+    <div class="eyebrow">Investment Dashboard · {{today_str}}</div>
+    <h1>Path to <em>750,000 €</em></h1>
+    <!-- Legacy price row kept hidden: -->
+    <!-- <div class="head-meta">SPYY {spyy_price:.2f} € · LQQ {lqq_price:.2f} € · retirement {{RETIRE_DISPLAY_EN}}</div> -->
+
+    <!-- Main visible price row: -->
+    <!--<div class="head-meta" style="font-size: 16px; color: var(--dim); Margin-top: 6px;">SPYY: <strong style="color: #4ADE80; font-size: 18px;">{round(spyy_price):,} €</strong> &nbsp;·&nbsp; LQQ: <strong style="color: #4ADE80; font-size: 18px;">{round(lqq_price):,} €</strong> &nbsp;·&nbsp; retirement {{RETIRE_DISPLAY_EN}}</div>-->
+    <div class="head-meta" style="font-size:16px;color:var(--dim);Margin-top:6px;white-space:nowrap;">SPYY: <strong id="live-spyy-price" style="color:#4ADE80;font-size:18px;">{{spyy_price}} €</strong> &nbsp;·&nbsp; LQQ: <strong id="live-lqq-price" style="color:#4ADE80;font-size:18px;">{{lqq_price}} €</strong> &nbsp;·&nbsp; retirement {{RETIRE_DISPLAY_EN}}</div>
+    <div id="live-price-source" class="head-meta" style="font-size:12px;color:{{price_source_color}};Margin-top:4px;">prices: {{price_source}}</div>
+ 
+    </div>
+    <div id="live-regime-badge" class="regime-watermark {{regime_badge_class}}" aria-label="Market regime {{Market_regime}}">
+    <svg viewBox="0 0 320 250" role="img" aria-hidden="true">
+    <g class="regime-symbol regime-bull">
+      <path class="regime-line strong" d="M64 76 C28 50 20 22 31 11 C51 42 84 55 111 73 C126 62 194 62 209 73 C236 55 269 42 289 11 C300 22 292 50 256 76 C281 93 291 123 284 151 C274 130 254 116 235 112 C230 154 203 200 160 219 C117 200 90 154 85 112 C66 116 46 130 36 151 C29 123 39 93 64 76 Z"/>
+      <path class="regime-line thin" d="M111 73 C126 87 143 94 160 94 C177 94 194 87 209 73"/>
+      <path class="regime-line thin" d="M118 127 C130 117 142 118 153 130"/>
+      <path class="regime-line thin" d="M167 130 C178 118 190 117 202 127"/>
+      <path class="regime-line thin" d="M136 174 C150 186 170 186 184 174"/>
+      <path class="regime-line thin" d="M146 157 C154 165 166 165 174 157"/>
+    </g>
+    <g class="regime-symbol regime-neutral">
+      <path class="regime-line strong" d="M64 76 C28 50 20 22 31 11 C51 42 84 55 111 73 C126 62 194 62 209 73 C236 55 269 42 289 11 C300 22 292 50 256 76 C281 93 291 123 284 151 C274 130 254 116 235 112 C230 154 203 200 160 219 C117 200 90 154 85 112 C66 116 46 130 36 151 C29 123 39 93 64 76 Z"/>
+      <path class="regime-line thin" d="M111 73 C126 87 143 94 160 94 C177 94 194 87 209 73"/>
+      <path class="regime-line thin" d="M118 127 C130 117 142 118 153 130"/>
+      <path class="regime-line thin" d="M167 130 C178 118 190 117 202 127"/>
+      <path class="regime-line thin" d="M136 174 C150 186 170 186 184 174"/>
+      <path class="regime-line thin" d="M146 157 C154 165 166 165 174 157"/>
+    </g>
+    <g class="regime-symbol regime-bear">
+      <path class="regime-line strong" d="M70 69 C48 28 72 5 105 32 C122 22 140 18 160 18 C180 18 198 22 215 32 C248 5 272 28 250 69 C270 90 279 125 266 158 C254 188 223 203 205 211 C190 226 175 233 160 233 C145 233 130 226 115 211 C97 203 66 188 54 158 C41 125 50 90 70 69 Z"/>
+      <path class="regime-line thin" d="M101 38 C84 39 79 55 91 78"/>
+      <path class="regime-line thin" d="M219 38 C236 39 241 55 229 78"/>
+      <path class="regime-line thin" d="M92 86 C111 67 136 62 160 62 C184 62 209 67 228 86"/>
+      <path class="regime-line thin" d="M96 118 C115 100 134 101 148 119"/>
+      <path class="regime-line thin" d="M172 119 C186 101 205 100 224 118"/>
+      <path class="regime-line thin" d="M116 125 C128 139 141 138 151 124"/>
+      <path class="regime-line thin" d="M169 124 C179 138 192 139 204 125"/>
+      <path class="regime-line thin" d="M130 153 C145 141 175 141 190 153"/>
+      <path class="regime-line thin" d="M138 160 C148 171 172 171 182 160"/>
+      <path class="regime-line thin" d="M129 184 C145 195 175 195 191 184"/>
+      <path class="regime-line thin" d="M99 137 C108 172 117 196 130 215"/>
+      <path class="regime-line thin" d="M221 137 C212 172 203 196 190 215"/>
+    </g>
+    </svg>
+    <span id="live-regime-text">{{Market_regime}}</span>
+    </div>
+    <div class="ib-label">INTERACTIVE BROKERS</div>
+    <div class="ai-side-panel">
+    <div class="side-mini-card ai-review-card">
+    <div class="side-k">AI guardrail review</div>
+    <div class="side-s">Rule consistency check. Not investment advice.</div>
+    <button id="ai-review-button" class="ai-review-button" type="button">Run AI review</button>
+    <div id="ai-review-mode" class="ai-review-mode"></div>
+    <div id="ai-review-output" class="ai-review-output">Ready.</div>
+    </div>
+    </div>
+    <div class="regime-side-panel">
+    <div class="side-mini-card hardcap-card">
+    <div class="side-k">LQQ hard cap monitor</div>
+    <div id="live-hardcap-pct" class="side-v">{{lqq_pct}} %</div>
+    <div class="side-s">LQQ share of invested portfolio</div>
+    <div class="side-bar"><div id="live-hardcap-fill" style="width:{{lqq_pct}}%"></div><span class="cap-Mark cap-25"></span><span class="cap-Mark cap-35"></span></div>
+    <div class="side-scale"><span>&lt; 25 %</span><span>watch 35 %</span></div>
+    </div>
+    <div id="live-limit-alert" class="side-mini-card limit-alert-card {{limit_alert_class}}">
+    <div class="side-k">limit trigger</div>
+    <div id="live-limit-alert-main" class="side-alert-main">{{limit_alert_main}}</div>
+    <div id="live-limit-alert-sub" class="side-s">{{limit_alert_sub}}</div>
+    </div>
+    <div class="side-mini-card retire-side-card">
+    <div class="side-k">time horizon</div>
+    <div class="retire-countdown">{{retire_countdown}}</div>
+    </div>
+    </div>
+    <div class="header-right">
+    <div class="ring-wrap">
+    <svg width="80" height="80" viewBox="0 0 80 80">
+    <circle cx="40" cy="40" r="34" fill="none" stroke="#2a2318" stroke-width="7"/>
+    <circle cx="40" cy="40" r="34" fill="none" stroke="#d4a14c" stroke-width="7"
+    stroke-linecap="round" stroke-dasharray="214" stroke-dashoffset="214"
+    transform="rotate(-90 40 40)" style="animation:fr 1.4s ease-out .4s forwards;"/>
+    </svg>
+    <div class="ring-txt"><div class="pct">{{goal_pct}} %</div><div class="lbl">invested / goal</div></div>
+    </div>
+    </div>
+    </header>

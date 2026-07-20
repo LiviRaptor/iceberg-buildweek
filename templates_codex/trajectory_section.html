@@ -1,0 +1,85 @@
+    <section class="fade" style="animation-delay:.13s">
+    <div class="sec-head"><span class="sec-num">III</span><h2 style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;"><span>Trajectory 2026-{{CHART_END}}</span><span id="ret-countdown" style="font-size:15px;font-weight:600;color:var(--soft);opacity:.95;Margin-left:28px;"></span></h2></div>
+    <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;Margin-bottom:14px;">
+    <div style="font-size:11px;color:var(--dim);">
+    <span style="color:var(--soft);font-weight:600;">Damped</span> 4,8 % &nbsp;·&nbsp;
+    <span style="color:var(--gbr);font-weight:600;">Consensus</span> 8,5 % &nbsp;·&nbsp;
+    <span style="color:var(--teal);font-weight:600;">AI boom</span> 11,75 %
+    <span style="Margin-left:10px;color:var(--dim)">· blend rate gently declines after year 10</span>
+    </div>
+    </div>
+    <div class="ctrl" style="Margin-bottom:14px;">
+    <div class="ctl"><label>monthly contribution -> SPYY</label>
+    <div class="cr"><input type="number" id="monthly" value="800" step="50">
+    <span style="color:var(--soft);font-size:12px">€/month</span></div></div>
+    <div class="ctl"><label>consensus — custom rate</label>
+    <div class="cr"><select id="kRate" onchange="draw()"></select></div></div>
+    <div class="ctl">
+    <label>Monthly investment increase</label>
+    <div class="cr" style="Margin-bottom:4px;">
+    <select id="incMonth" style="width:62px"></select>
+    <select id="incYear"></select>
+    </div>
+    <div class="cr">
+    <input type="number" id="incAmt" value="0" step="50">
+    <span style="color:var(--soft);font-size:12px">€</span>
+    </div>
+    </div>
+    <div class="ctl">
+    <label>one-off contribution (SPYY)</label>
+    <div class="cr" style="Margin-bottom:4px;"><select id="lumpMonth" style="width:62px"></select><select id="lumpYear"></select></div>
+    <div class="cr"><input type="number" id="lumpAmt" value="0" step="500"><span style="color:var(--soft);font-size:12px">€</span></div>
+    </div>
+    <div class="ctl" style="grid-column:span 2"><label>contribution pauses — click year(s) without contributions</label>
+    <div id="pause-grid" style="display:flex;flex-wrap:wrap;gap:5px;Margin-top:6px;"></div></div>
+    </div>
+
+    <div class="traj-wrap" style="Margin-top:18px;Margin-bottom:18px;border:1px solid var(--ls);border-radius:16px;padding:18px 18px 10px;background:linear-gradient(180deg,rgba(212,161,76,.03),rgba(0,0,0,0));">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;Margin-bottom:10px;">
+    <div>
+    <div style="font-size:13px;color:var(--soft);Margin-bottom:4px;">Portfolio net value (€)</div>
+    <div style="font-size:11px;color:var(--dim);">projection to 2053</div>
+    </div>
+    <div style="display:flex;gap:16px;font-size:11px;color:var(--soft);flex-wrap:wrap;">
+    <div><span style="color:#edc676;">●</span> Damped</div>
+    <div><span style="color:#d08cff;">●</span> Consensus</div>
+    <div><span style="color:#5fcca7;">●</span> AI boom</div>
+    </div>
+    </div>
+    <div class="cb" style="height:260px;">
+    <canvas id="trajChart"></canvas>
+    </div>
+    </div>
+
+    <div class="res4">
+    <div class="res"><div class="k">retirement</div><div class="v" style="color:var(--teal)">{{RETIRE_DISPLAY_EN}}</div></div>
+    <div class="res"><div class="k">750k reached</div><div class="v" style="color:var(--gbr)" id="rGoal">—</div></div>
+    <div class="res"><div class="k">value {{RETIRE_DISPLAY_EN}} ● live</div><div class="v" id="rFinal">—</div></div>
+    <div class="res"><div class="k">you can stop contributing from<br><small style="font-size:9px;color:var(--dim)">(portfolio compounds on its own)</small></div>
+    <div class="v" style="color:var(--gbr)" id="rBreak">—</div></div>
+    </div>
+    <div style="overflow-x:auto;overflow-y:auto;max-height:540px;Margin-top:12px;border-radius:8px;padding-right:18px;">
+    <table id="traj-table" style="font-size:12.5px;">
+    <colgroup>
+    <col style="width:90px">
+    <col style="width:70px">
+    <col style="width:150px">
+    <col style="width:18%">
+    <col style="width:18%">
+    <col style="width:18%">
+    <col style="width:110px">
+    </colgroup>
+    <thead><tr>
+    <th style="padding-left:10px">YEAR</th>
+    <th class="r">AGE</th>
+    <th class="r">CONTRIBUTION</th>
+    <th class="r" style="color:var(--soft)">DAMPED<br><small style="font-weight:400;font-size:10px;">4,8 %</small></th>
+    <th class="r" style="color:var(--gbr)">KONSENZUS<br><small id="kLbl" style="font-weight:400;font-size:10px;">8,5 %</small></th>
+    <th class="r" style="color:var(--teal)">AI BOOM<br><small style="font-weight:400;font-size:10px;">11,75 %</small></th>
+    </tr></thead>
+    <tbody id="traj-tbody"></tbody>
+    </table>
+    </div>
+    </div>
+    </section>

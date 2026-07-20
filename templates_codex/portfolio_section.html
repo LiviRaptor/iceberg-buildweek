@@ -1,0 +1,78 @@
+    <section class="fade" style="animation-delay:.08s">
+    <div class="theme-tabs">
+
+    </div>
+
+
+    <div class="sec-head"><span class="sec-num">I</span><h2>Portfolio Today</h2></div>
+    <div class="card">
+    <div class="sum-row">
+    <div class="sum-box">
+    <div class="sum-metrics">
+    <div>
+    <div class="k">net value · with cash</div>
+    <div id="live-net-liq" class="v">{{net_liq}} €</div>
+    </div>
+    <div class="sum-side">
+    <div class="k">portfolio · excluding cash</div>
+    <div id="live-invested" class="v mini">{{invested}} €</div>
+    </div>
+    </div>
+    <div class="s">cash {{CASH}} € · invested assets excluding cash</div>
+    </div>
+    <div class="sum-box sum-box-right">
+    <div class="k">total P&amp;L</div>
+    <div id="live-total-pnl" class="v" style="color:{{total_pnl_color}}">{{total_pnl}} €</div>
+    <div id="live-total-pnl-pct" class="s" style="color:{{total_pnl_color}}">{{total_pnl_pct}} % on invested capital</div>
+    </div>
+    </div>
+    <div class="pos-card">
+    <div>
+    <div class="pos-name">SPYY · {{SPYY_SHARES}} shares</div>
+    <div class="pos-detail">avg {{SPYY_AVG_COST}} € · current <span id="live-spyy-price-detail">{{spyy_price}} €</span> · ACWI global ETF</div>
+    </div>
+    <div class="pos-pnl">
+    <div id="live-spyy-pnl" class="pval" style="color:{{spyy_pnl_color}}">{{spyy_pnl}} €</div>
+    <div id="live-spyy-pnl-pct" class="ppct" style="color:{{spyy_pnl_color}}">{{spyy_pnl_pct}} %</div>
+    <div id="live-spyy-value" class="pmv">value {{spyy_value}} €</div>
+    </div>
+    </div>
+    <div class="pos-card">
+    <div>
+    <div class="pos-name">LQQ · {{LQQ_SHARES_INT}} shares</div>
+    <div class="pos-detail">avg {{LQQ_AVG_COST}} € · current <span id="live-lqq-price-detail">{{lqq_price}} €</span> · 2x NASDAQ-100 leverage</div>
+    </div>
+    <div class="pos-pnl">
+    <div id="live-lqq-pnl" class="pval" style="color:{{lqq_pnl_color}}">{{lqq_pnl}} €</div>
+    <div id="live-lqq-pnl-pct" class="ppct" style="color:{{lqq_pnl_color}}">{{lqq_pnl_pct}} %</div>
+    <div id="live-lqq-value" class="pmv">value {{lqq_value}} €</div>
+    </div>
+    </div>
+    <div class="split" style="Margin-top:16px;">
+    <div>
+    <div class="sub-l">cash analysis</div>
+    <div class="flow">
+    <div class="r"><span style="color:var(--soft)">cash in IBKR</span><span>{{CASH}} €</span></div>
+    <div class="r Sep"><span style="color:var(--red)">- reserve (job-loss buffer)</span><span style="color:var(--red)">−{{RESERVE}} €</span></div>
+    <div class="r"><span style="color:var(--soft)">dry powder pre LQQ</span><span>{{dry_powder}} €</span></div>
+    <div class="r Sep"><span style="color:var(--soft)">- limit-order volume</span><span>−{{limits_total}} €</span></div>
+    <div class="r"><span style="color:var(--gbr)">remaining cash</span>
+    <span style="color:{{cash_gap_color}}">{{cash_gap}} €</span></div>
+    </div>
+    </div>
+    <div>
+    <div class="sub-l">allocation vs. 75 / 25 target · portfolio since 2019</div>
+    <div class="abar" style="Margin-bottom:6px;">
+    <div id="live-spyy-bar" style="width:{{spyy_pct}}%;background:var(--teal)"></div>
+    <div id="live-lqq-bar" style="width:{{lqq_pct}}%;background:var(--purple)"></div>
+    </div>
+    <div class="leg" style="Margin-bottom:12px;">
+    <span><i style="background:var(--teal)"></i>SPYY <span id="live-spyy-pct">{{spyy_pct}} %</span></span>
+    <span><i style="background:var(--purple)"></i>LQQ <span id="live-lqq-pct">{{lqq_pct}} %</span></span>
+    <span style="color:var(--dim)">target: 75 / 25</span>
+    </div>
+    <div class="cb" style="height:130px;"><canvas id="spark"></canvas></div>
+    </div>
+    </div>
+    </div>
+    </section>

@@ -1,0 +1,40 @@
+{
+  "portfolio": {
+    "SPYY_SHARES": 320.0,
+    "SPYY_AVG_COST": 245.0,
+    "LQQ_SHARES": 1200.0,
+    "LQQ_AVG_COST": 7.1,
+    "CASH": 22000.0,
+    "RESERVE": 18000.0,
+    "NET_LIQ_IB": 122500.0,
+    "last_updated": "demo snapshot",
+    "SPYY_LAST_PRICE": 278.4,
+    "LQQ_LAST_PRICE": 9.14
+  },
+  "limits": [
+    {
+      "price": 7.42,
+      "qty": 150
+    },
+    {
+      "price": 6.86,
+      "qty": 250
+    },
+    {
+      "price": 6.09,
+      "qty": 250
+    },
+    {
+      "price": 5.32,
+      "qty": 150
+    }
+  ],
+  "goal": 750000,
+  "retirement": {
+    "birth": "demo",
+    "age_years": 67,
+    "date": "2043-11-01",
+    "display": "nov 2043",
+    "chart_end_year": 2044
+  }
+}

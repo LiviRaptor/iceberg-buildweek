@@ -1,0 +1,141 @@
+    <section class="fade" style="animation-delay:.26s">
+    <div class="sec-head"><span class="sec-num">II</span><h2>LQQ Risk Management</h2></div>
+
+    <div class="risk-grid">
+
+    <div class="risk-card">
+    <div class="risk-title">LQQ hard cap monitor</div>
+
+    <div class="risk-big" id="live-risk-hardcap-pct">{{lqq_share_pct}} %</div>
+    <div class="risk-soft">LQQ share of invested portfolio · monitors leverage drift</div>
+
+    <div class="gAuge"
+    style="
+    position:relative;
+    background:#0b0907;
+    height:18px;
+    border-radius:999px;
+    overflow:hidden;
+    ">
+
+    <div
+    id="live-risk-hardcap-fill"
+    style="
+    width:{{lqq_share_pct}}%;
+    height:100%;
+    background:var(--teal);
+    border-radius:999px;
+    ">
+    </div>
+
+    <div style="
+    position:absolute;
+    left:25%;
+    top:-2px;
+    width:2px;
+    height:22px;
+    background:rgba(255,255,255,.35);
+    "></div>
+
+    <div style="
+    position:absolute;
+    left:35%;
+    top:-2px;
+    width:2px;
+    height:22px;
+    background:rgba(255,255,255,.35);
+    "></div>
+
+    <div style="
+    position:absolute;
+    left:40%;
+    top:-2px;
+    width:2px;
+    height:22px;
+    background:rgba(255,255,255,.35);
+    "></div>
+
+    </div>
+
+    <div class="risk-list">
+    <div class="risk-row"><span>&lt; 25 %</span><span style="color:var(--teal)">normal range</span></div>
+    <div class="risk-row"><span>25–35 %</span><span style="color:var(--gold)">elevated volatility</span></div>
+    <div class="risk-row"><span>35–40 %</span><span style="color:var(--gold)">move gains into SPYY</span></div>
+    <div class="risk-row"><span>&gt; 40 %</span><span style="color:var(--red)">excess risk concentration</span></div>
+    </div>
+
+    <div id="lqqStatus" class="risk-status st-ok">OK · LQQ exposure under control</div>
+
+    <div class="risk-note">
+    → no new money into LQQ · existing position and limit orders only
+    </div>
+
+    <div class="risk-card" style="Margin-top:18px;">
+    <div class="risk-title">Rebalance engine</div>
+
+    <div class="risk-list">
+    <div class="risk-row">
+    <span>Target LQQ share</span>
+    <strong>35 %</strong>
+    </div>
+
+    <div class="risk-row">
+    <span>Current LQQ share</span>
+    <strong id="currentShare">16.5 %</strong>
+    </div>
+
+    <div class="risk-row">
+    <span>Stav</span>
+    <strong style="color:var(--teal)">NO ACTION</strong>
+    </div>
+    </div>
+
+    <div class="risk-note" id="rebalanceMsg">
+    LQQ is well below the risk cap · no rebalancing needed.
+    </div>
+    </div>
+    </div>
+
+    <div style="display:grid;gap:18px;">
+
+    <div class="risk-card">
+    <div class="risk-title">Maximum LQQ exposure</div>
+
+    <div class="risk-list">
+    <div class="risk-row"><span>Currently in LQQ</span><strong>{{lqq_value}} €</strong></div>
+    <div class="risk-row"><span>Limit-order volume</span><strong>{{limits_total}} €</strong></div>
+    <div class="risk-row"><span>MAX exposure</span><strong style="color:var(--gold)">{{lqq_max_exposure}} €</strong></div>
+    </div>
+    </div>
+
+    <div class="risk-card">
+    <div class="risk-title">Market regime engine</div>
+
+    <div style="font-size:28px;font-weight:700;color:{{regime_color}};Margin-bottom:8px;">
+    {{Market_regime}}
+    </div>
+
+    <div class="risk-soft">
+    {{regime_text}}
+    </div>
+
+    <div class="risk-status {{regime_class}}">{{regime_action}}</div>
+    </div>
+
+    <div class="risk-card">
+    <div class="risk-title">Scenario checkpoints</div>
+
+    <div class="risk-list">
+    <div class="risk-row"><span>2029 possible income shock</span><span>in ~3 years</span></div>
+    <div class="risk-row"><span>2033 possible income shock</span><span>in ~7 years</span></div>
+    </div>
+
+    <div class="risk-note">
+    Before known personal risk windows, gradually reduce LQQ exposure and increase cash/SPYY.
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    </section>
