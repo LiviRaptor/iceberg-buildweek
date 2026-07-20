@@ -129,3 +129,8 @@ GPT-5.6 in Codex was used for the final Build Week audit. That work included rev
 - Optional ib_insync support for private Interactive Brokers integration
 - Codex-assisted refactoring and productization during OpenAI Build Week
 - GPT-5.6 final privacy, safety, and submission audit
+
+## Author
+
+Livia Petrickova — Senior Data Engineer  
+LinkedIn: https://sk.linkedin.com/in/liviapetrickova
