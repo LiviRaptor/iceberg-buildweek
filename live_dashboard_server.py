@@ -26,7 +26,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
 HTML_FILE = ROOT / 'livka_dashboard.html'
-CONFIG_FILE = Path(os.environ.get('HOLDPILOT_CONFIG', 'config.json'))
+CONFIG_FILE = Path(os.environ.get('ICEBERG_CONFIG', 'config.json'))
 if not CONFIG_FILE.is_absolute():
     CONFIG_FILE = ROOT / CONFIG_FILE
 HOST = '127.0.0.1'

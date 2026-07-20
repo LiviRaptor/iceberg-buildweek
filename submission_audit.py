@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail fast when a public HoldPilot submission contains private material."""
+"""Fail fast when a public Iceberg submission contains private material."""
 
 from pathlib import Path
 import re
@@ -15,7 +15,7 @@ REQUIRED_FILES = {
     "live_dashboard_server.py",
     "livka_dashboard_core.py",
     "livka_dashboard_refactor_codex.py",
-    "start_holdpilot_live.sh",
+    "start_iceberg_live.sh",
     "submission_audit.py",
 }
 FORBIDDEN_TRACKED = {
@@ -66,12 +66,12 @@ def main():
                 errors.append(f"{relative_path}: possible {label}")
 
     if errors:
-        print("HoldPilot submission audit FAILED:")
+        print("Iceberg submission audit FAILED:")
         for error in errors:
             print(f"- {error}")
         return 1
 
-    print(f"HoldPilot submission audit passed ({len(tracked)} public candidate files checked).")
+    print(f"Iceberg submission audit passed ({len(tracked)} public candidate files checked).")
     return 0
 
 

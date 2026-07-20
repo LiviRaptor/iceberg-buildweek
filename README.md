@@ -1,16 +1,16 @@
-# HoldPilot
+# Iceberg
 
-HoldPilot is a live portfolio guardrail dashboard for a long-term ETF investing plan. It turns a personal investment plan into a calm, visual cockpit: current portfolio value, cash buffer, LQQ exposure, limit-order readiness, market-regime status, and a Guardrail Review.
+Iceberg is a live portfolio guardrail dashboard for a long-term ETF investing plan. It turns a personal investment plan into a calm, visual cockpit: current portfolio value, cash buffer, LQQ exposure, limit-order readiness, market-regime status, and a Guardrail Review.
 
 It is not an investment advisor and does not place trades. It is a personal decision-support dashboard that checks whether the current portfolio state is consistent with predefined risk rules.
 
 ## Why It Exists
 
-Long-term investing is simple in theory and hard in practice. The difficult moments are not spreadsheet moments; they are panic moments. HoldPilot is designed for those moments: it keeps the plan visible, highlights risk concentration, tracks cash and limit orders, and provides a concise guardrail review before emotional decisions take over.
+Long-term investing is simple in theory and hard in practice. The difficult moments are not spreadsheet moments; they are panic moments. Iceberg is designed for those moments: it keeps the plan visible, highlights risk concentration, tracks cash and limit orders, and provides a concise guardrail review before emotional decisions take over.
 
 ## What Was Built During OpenAI Build Week
 
-HoldPilot started before Build Week as a private static HTML portfolio snapshot generated from one large script. It worked as a personal dashboard, but it was not modular, not public-demo ready, and not easy to evolve.
+Iceberg started before Build Week as a private static HTML portfolio snapshot generated from one large script. It worked as a personal dashboard, but it was not modular, not public-demo ready, and not easy to evolve.
 
 During Build Week, the project was refactored and productized with Codex as an iterative engineering partner:
 
@@ -57,7 +57,7 @@ For the Build Week demo, the review runs in deterministic guardrail demo mode. T
 From the project directory:
 
 ```bash
-./start_holdpilot_live.sh
+./start_iceberg_live.sh
 ```
 
 Then open:
@@ -86,7 +86,7 @@ Private files are ignored by git:
 ## Project Structure
 
 ```text
-start_holdpilot_live.sh          # starts the live demo
+start_iceberg_live.sh            # starts the live demo
 livka_dashboard_refactor_codex.py # dashboard generator
 livka_dashboard_core.py           # shared calculations and data loading
 live_dashboard_server.py          # local live server and JSON endpoints
@@ -100,7 +100,7 @@ functional_files.txt              # detailed file inventory
 
 ## Privacy And Safety
 
-HoldPilot does not include private brokerage credentials or API keys. The repository is intended to be published with `config.demo.json` only.
+Iceberg does not include private brokerage credentials or API keys. The repository is intended to be published with `config.demo.json` only.
 
 The dashboard is not financial advice. It does not recommend buying, selling, or holding any security. It displays predefined personal risk rules and checks consistency against them.
 

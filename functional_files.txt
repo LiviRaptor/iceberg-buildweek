@@ -1,4 +1,4 @@
-HoldPilot - Functional Files
+Iceberg - Functional Files
 ============================
 
 This file lists the files that belong to the Build Week submission.
@@ -9,7 +9,7 @@ Run
 
 Start the live demo:
 
-    ./start_holdpilot_live.sh
+    ./start_iceberg_live.sh
 
 Then open:
 
@@ -22,8 +22,8 @@ Optional regime preview:
 Core Files
 ----------
 
-start_holdpilot_live.sh
-    Starts the HoldPilot live demo. It uses config.demo.json by default.
+start_iceberg_live.sh
+    Starts the Iceberg live demo. It uses config.demo.json by default.
 
 livka_dashboard_refactor_codex.py
     Main dashboard generator. Builds the HTML page from templates and data.
@@ -97,7 +97,7 @@ __pycache__/
 How It Works
 ------------
 
-1. The live script selects config.demo.json unless HOLDPILOT_CONFIG is set.
+1. The live script selects config.demo.json unless ICEBERG_CONFIG is set.
 2. The dashboard generator builds livka_dashboard.html from templates.
 3. The local server serves the dashboard at http://127.0.0.1:8765/.
 4. Browser JavaScript polls the server for updated prices and recalculated

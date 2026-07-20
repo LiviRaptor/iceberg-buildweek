@@ -42,13 +42,13 @@ def ensure_dependencies():
 
 
 def load_config(script_dir):
-    config_name = os.environ.get("HOLDPILOT_CONFIG", CONFIG_FILE)
+    config_name = os.environ.get("ICEBERG_CONFIG", CONFIG_FILE)
     config_path = Path(config_name)
     if not config_path.is_absolute():
         config_path = script_dir / config_path
     if not config_path.exists():
         raise FileNotFoundError(
-            f"Missing {config_path}. Set HOLDPILOT_CONFIG or create config.json/config.demo.json."
+            f"Missing {config_path}. Set ICEBERG_CONFIG or create config.json/config.demo.json."
         )
     with open(config_path, encoding="utf-8") as f:
         return json.load(f)
